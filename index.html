@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- 
+    JS Assignment 3 - Smoothie Machine
+
+    Christopher Blouin
+
+    Note: I collapsed the form sections to make it easier to look at and edit when needed.
+   -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smoothie Assignment - Christopher Blouin</title>
+    <!-- Normalize styles before applying customs styles. -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- Add custom stylesheet after normalization -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Link to JavaScript using defer, let the page load first -->
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <!-- Start of contentContainer -->
+    <div id="contentContainer">
+      <!-- Start of Header -->
+      <header>
+        <h1>Smoothie Order Machine</h1>
+      </header>
+      <!-- End of Header -->
+
+      <!-- 
+      I did not include an action and method attribute in the form, as I want to stay on the order page and display the order below the order buttons. (preventDefault in JS)
+    
+      Start of Order Form
+      -->
+      <form id="smoothieForm">
+        <!-- Start of Customize Smoothie Section -->
+        <section>
+          <h2>Customize Your Smoothie Below!</h2>
+          <p>
+            Select from a wide variety of ingredients to craft your ideal drink!
+          </p>
+          <!-- Start of Customer Name Fieldset -->
+          <fieldset>
+            <legend>Customer Details</legend>
+            <div>
+              <label for="fname">Customer Name</label>
+              <input
+                type="text"
+                name="fname"
+                id="fname"
+                placeholder="First Name Here"
+              />
+            </div>
+          </fieldset>
+          <!-- End of Customer Name Fieldset -->
+          <!-- Start of Smoothie Size Fieldset -->
+          <fieldset>
+            <legend>Smoothie Size</legend>
+            <div>
+              <label for="small">Small</label>
+              <input
+                type="radio"
+                name="size"
+                id="small"
+                value="Small"
+                required
+              />
+            </div>
+            <div>
+              <label for="medium">Medium</label>
+              <input
+                type="radio"
+                name="size"
+                id="medium"
+                value="Medium"
+                required
+              />
+            </div>
+            <div>
+              <label for="large">Large</label>
+              <input
+                type="radio"
+                name="size"
+                id="large"
+                value="Large"
+                required
+              />
+            </div>
+            <div>
+              <label for="xlarge">Extra Large</label>
+              <input
+                type="radio"
+                name="size"
+                id="xlarge"
+                value="Extra Large"
+                required
+              />
+            </div>
+            <div>
+              <label for="superb">Superb</label>
+              <input
+                type="radio"
+                name="size"
+                id="superb"
+                value="Superb"
+                required
+              />
+            </div>
+          </fieldset>
+          <!-- End of Smoothie Size Fieldset -->
+          <!-- Start of Smoothness Fieldset-->
+          <fieldset>
+            <legend>Blending Smoothness</legend>
+            <p>
+              Please adjust the slider to choose an ideal smoothness or
+              thickness.
+            </p>
+            <div id="smoothnessContainer">
+              <label for="smoothness" id="smoothnessText"></label>          
+              <input
+                type="range"
+                name="smoothness"
+                id="smoothness"
+                min="0"
+                max="100"
+              />
+            </div>
+          </fieldset>
+          <!-- End of Smoothness Fieldset-->
+        </section>
+        <!-- End of Customize Smoothie Section -->
+
+        <!-- Start of Fruit Options Section -->
+        <section id="fruits">
+          <h3>Select Available Fruits</h3>
+          <fieldset>
+            <div>
+              <label for="apples">Apples</label>
+              <input type="checkbox" name="fruit" id="apples" value="Apples" />
+            </div>
+            <div>
+              <label for="bananas">Bananas</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="bananas"
+                value="Bananas"
+              />
+            </div>
+            <div>
+              <label for="blueberries">Blueberries</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="blueberries"
+                value="Blueberries"
+              />
+            </div>
+            <div>
+              <label for="cantaloupe">Cantaloupe</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="cantaloupe"
+                value="Cantaloupe"
+              />
+            </div>
+            <div>
+              <label for="dragon">Dragon Fruit</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="dragon"
+                value="Dragon Fruit"
+              />
+            </div>
+            <div>
+              <label for="kiwi">Kiwi</label>
+              <input type="checkbox" name="fruit" id="kiwi" value="kiwi" />
+            </div>
+            <div>
+              <label for="mangoes">Mangoes</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="mangoes"
+                value="Mangoes"
+              />
+            </div>
+            <div>
+              <label for="oranges">Oranges</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="oranges"
+                value="Oranges"
+              />
+            </div>
+            <div>
+              <label for="peaches">Peaches</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="peaches"
+                value="Peaches"
+              />
+            </div>
+            <div>
+              <label for="pineapples">Pineapples</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="pineapples"
+                value="Pineapples"
+              />
+            </div>
+            <div>
+              <label for="strawberries">Strawberries</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="strawberries"
+                value="Strawberries"
+              />
+            </div>
+            <div>
+              <label for="grapes">Grapes</label>
+              <input type="checkbox" name="fruit" id="grapes" value="grapes" />
+            </div>
+            <div>
+              <label for="pears">Pears</label>
+              <input type="checkbox" name="fruit" id="pears" value="Pears" />
+            </div>
+            <div>
+              <label for="pomegranate">Pomegranate</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="pomegranate"
+                value="Pomegranate"
+              />
+            </div>
+            <div>
+              <label for="blackberries">Blackberries</label>
+              <input
+                type="checkbox"
+                name="fruit"
+                id="blackberries"
+                value="Blackberries"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Fruit Options Section -->
+
+        <!-- Start of Vegetable Options Section -->
+        <section id="vegetables">
+          <h3>Select Available Vegetables</h3>
+          <fieldset>
+            <div>
+              <label for="artichoke">Artichoke</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="artichoke"
+                value="Artichoke"
+              />
+            </div>
+            <div>
+              <label for="asparagus">Asparagus</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="asparagus"
+                value="Asparagus"
+              />
+            </div>
+            <div>
+              <label for="avocado">Avocado</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="avocado"
+                value="Avocado"
+              />
+            </div>
+            <div>
+              <label for="beets">Beets</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="beets"
+                value="Beets"
+              />
+            </div>
+            <div>
+              <label for="brocolli">Brocolli</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="brocolli"
+                value="Brocolli"
+              />
+            </div>
+            <div>
+              <label for="butternut">Butternut Squash</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="butternut"
+                value="Butternut Squash"
+              />
+            </div>
+            <div>
+              <label for="cabbage">Cabbage</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="cabbage"
+                value="Cabbage"
+              />
+            </div>
+            <div>
+              <label for="carrots">Carrots</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="carrots"
+                value="Carrots"
+              />
+            </div>
+            <div>
+              <label for="cucumber">Cucumber</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="cucumber"
+                value="Cucumber"
+              />
+            </div>
+            <div>
+              <label for="celery">Celery</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="celery"
+                value="Celery"
+              />
+            </div>
+            <div>
+              <label for="cauliflower">Cauliflower</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="cauliflower"
+                value="Cauliflower"
+              />
+            </div>
+            <div>
+              <label for="radish">Radish</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="radish"
+                value="Radish"
+              />
+            </div>
+            <div>
+              <label for="spinach">Spinach</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="spinach"
+                value="Spinach"
+              />
+            </div>
+            <div>
+              <label for="turnip">Turnip</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="turnip"
+                value="Turnip"
+              />
+            </div>
+            <div>
+              <label for="zucchini">Zucchini</label>
+              <input
+                type="checkbox"
+                name="vegetable"
+                id="zucchini"
+                value="Zucchini"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Vegetable Options Section -->
+
+        <!-- Start of Healthy Options Section -->
+        <section id="healthy">
+          <h3>Healthy Additions & Proteins</h3>
+          <fieldset>
+            <div>
+              <label for="almonds">Almonds</label>
+              <input
+                type="checkbox"
+                name="healthy"
+                id="almonds"
+                value="Almonds"
+              />
+            </div>
+            <div>
+              <label for="cashews">Cashews</label>
+              <input
+                type="checkbox"
+                name="healthy"
+                id="cashews"
+                value="Cashews"
+              />
+            </div>
+            <div>
+              <label for="flax">Flax Seed</label>
+              <input
+                type="checkbox"
+                name="healthy"
+                id="flax"
+                value="Flax Seed"
+              />
+            </div>
+            <div>
+              <label for="yogurt">Greek Yogurt</label>
+              <input
+                type="checkbox"
+                name="healthy"
+                id="yogurt"
+                value="Greek Yogurt"
+              />
+            </div>
+            <div>
+              <label for="protein">Protein Powder</label>
+              <input
+                type="checkbox"
+                name="healthy"
+                id="protein"
+                value="Protein Powder"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Healthy Options Section -->
+
+        <!-- Start of Liquid Options Section -->
+        <section id="liquid">
+          <h3>Choose a Liquid</h3>
+          <fieldset>
+            <div>
+              <label for="almondMilk">Almond Milk</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="almondMilk"
+                value="Almond Milk"
+              />
+            </div>
+            <div>
+              <label for="coconut">Coconut Milk</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="coconut"
+                value="Coconut Milk"
+              />
+            </div>
+            <div>
+              <label for="cashewMilk">Cashew Milk</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="cashewMilk"
+                value="Cashew Milk"
+              />
+            </div>
+            <div>
+              <label for="coffee">Cold Brew Coffee</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="coffee"
+                value="Cold Brew Coffee"
+              />
+            </div>
+            <div>
+              <label for="unsweetended">Unsweetended Almond Milk</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="unsweetended"
+                value="Unsweetended Almond Milk"
+              />
+            </div>
+            <div>
+              <label for="fruitpunch">Fruit Punch</label>
+              <input
+                type="radio"
+                name="liquid"
+                id="fruitpunch"
+                value="Fruit Punch"
+              />
+            </div>
+            <div>
+              <label for="water">Water</label>
+              <input type="radio" name="liquid" id="water" value="Water" />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Liquid Options Section -->
+
+        <!-- Start of Sweet Additions Section -->
+        <section id="sweetAdditions">
+          <h3>Select From Some Sweet Additions</h3>
+          <fieldset>
+            <div>
+              <label for="caramel">Caramel</label>
+              <input
+                type="checkbox"
+                name="sweet"
+                id="caramel"
+                value="Caramel"
+              />
+            </div>
+            <div>
+              <label for="cookie">Cookie Crumble</label>
+              <input
+                type="checkbox"
+                name="sweet"
+                id="cookie"
+                value="Cookie Crumble"
+              />
+            </div>
+            <div>
+              <label for="chocolate">Milk Chocolate</label>
+              <input
+                type="checkbox"
+                name="sweet"
+                id="chocolate"
+                value="Milk Chocolate"
+              />
+            </div>
+            <div>
+              <label for="hazelnut">Hazelnut Drizzle</label>
+              <input
+                type="checkbox"
+                name="sweet"
+                id="hazelnut"
+                value="Hazelnut Drizzle"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Sweet Additions Section -->
+
+        <!-- Start of Final Touches Section -->
+        <section id="finalTouches">
+          <h3>Select Some Final Touches</h3>
+          <fieldset>
+            <div>
+              <label for="cinnamon">Cinnamon Sprinkle</label>
+              <input
+                type="checkbox"
+                name="final"
+                id="cinnamon"
+                value="Cinnamon Sprinkle"
+              />
+            </div>
+            <div>
+              <label for="ftopping">Fruit Topping</label>
+              <input
+                type="checkbox"
+                name="final"
+                id="ftopping"
+                value="Fruit Topping"
+              />
+            </div>
+            <div>
+              <label for="pumpkinSpice">Pumpkin Spice</label>
+              <input
+                type="checkbox"
+                name="final"
+                id="pumpkinSpice"
+                value="Pumpkin Spice"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <!-- End of Final Touches Section -->
+
+        <!-- Start of Form Buttons -->
+        <div id="formButtons">
+          <button type="submit" id="orderButton">Order Smoothie!</button>
+          <button type="reset" id="clearOrder">Clear Order</button>
+          <p>Order Details Will Be Listed Below!</p>
+        </div>
+        <!-- End of Form Buttons -->
+
+        <!-- Start of Order Output Div -->
+        <div id="smoothieOutput">          
+          <div id="orderOutput"></div>
+        </div>
+        <!-- End of Order Output Div -->
+      </form>
+      <!-- End of Order Form -->
+      <!-- These elements are empty as the JavaScript textContent and innerHTML will be injected here -->
+    </div>
+    <!-- End of contentContainer -->
+  </body>
+</html>

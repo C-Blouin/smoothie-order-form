@@ -1,0 +1,328 @@
+@charset "utf-8";
+
+/* 
+JS Assignment 3 - Smoothie Machine
+
+Christopher Blouin
+*/
+
+/* Font Family Imports */
+/* Display Font */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+/* Body Copy Font */
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+/* Global Document Styles */
+html {
+  font-size: 100%;
+  line-height: 1.6;
+  /* Fallback color */
+  background: rgb(241, 255, 227);
+  background: linear-gradient(
+    25deg,
+    rgba(241, 255, 227, 1) 0%,
+    rgba(233, 246, 215, 1) 100%
+  );
+
+  /* set global font family as Raleway, will suitable fallbacks. */
+  font-family: "Raleway", Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Start of Global Heading Styles */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend,
+#smoothnessText {
+  /* Declare my first font style as the display font I'd like to use, but if it fails to load, it will use the following fallbacks. */
+  font-family: "Lobster", Georgia, "Times New Roman", Times, serif, serif;
+  margin: 0;
+}
+
+/* relatively position the smoothness input div container. */
+#smoothnessContainer {
+  display: flex;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* 
+Absolutely position the input range slider, to freely move the slider to the desired location. 
+
+Initially my range input was shifting surrounding html content, these styles helped solve this issue.
+*/
+#smoothness {
+  position: absolute;
+  margin: 50px 0px;
+}
+
+h1 {
+  font-size: 4.8em;
+  padding: 60px 0px;
+  margin: 0;
+}
+
+h2 {
+  padding: 50px 0px;
+  font-size: 2.8em;
+  text-shadow: 1px 3px #b2c097;
+}
+
+h3 {
+  font-size: 2.1em;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.8em;
+}
+
+h3,
+legend {
+  padding: 20px 0px;
+}
+
+legend,
+h3 {
+  font-size: 2.1em;
+  font-weight: 400;
+}
+
+h1,
+h3,
+legend {
+  color: #161616;
+}
+
+h2::before,
+h3:before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  margin-right: 20px;
+  vertical-align: middle;
+  text-align: center;
+  background: #b2c097;
+}
+
+h2::after,
+h3:after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 10px;
+  margin-left: 20px;
+  vertical-align: middle;
+  text-align: center;
+  background: #b2c097;
+}
+
+/* End of Global Heading Styles */
+
+/* Build a sub grid within the body to enable control over children elements of the container. */
+#contentContainer {
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0px 100px;
+}
+
+form {
+  display: grid;
+  background-color: #ffffff;
+  padding: 30px 50px 10px 50px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  box-shadow: 5px 5px #3b3b3b;
+}
+
+fieldset {
+  border: none;
+}
+
+p,
+label {
+  font-size: 1.1em;
+}
+
+.outputPara {
+  font-weight: bold;
+}
+
+input:focus {
+  border: 5px solid #7a8562;
+}
+
+/* Start of Form Button Styles */
+#formButtons {
+  padding: 50px 20px 0px 20px;
+}
+
+/* Add some styles to the friendly message when to the order buttons. */
+#formButtons p {
+  display: inline-block;
+  margin-left: 50px;
+  font-weight: bold;
+}
+
+/* Style a divider element beside the form buttons */
+#formButtons p::before {
+  content: "";
+  display: inline-block;
+  height: 40px;
+  width: 2px;
+  margin-right: 20px;
+  vertical-align: middle;
+  background: #161616;
+  
+}
+
+/* Add some whitespace between the buttons. */
+#clearOrder {
+  margin-left: 10px;
+}
+
+/* Static button styles */
+#orderButton,
+#clearOrder {
+  padding: 15px;
+  background-color: #161616;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.1em;
+}
+
+/* Declare a hover state to each of the buttons to let the user know they are about to click the button. */
+#orderButton:hover,
+#clearOrder:hover {
+  background-color: #dfebc5;
+  color: #161616;
+  transition: 0.2s;
+  cursor: pointer;
+  font-weight: bold;
+}
+/* End of Form Button Styles */
+
+div {
+  padding: 5px 0px;
+}
+
+/* Start of Grid Layout Styles */
+/* Specify the columns each section of the form should span, as well as the row the elements will occupy. */
+header {
+  grid-column: 1 / 5;
+  grid-row: 1;
+}
+
+#fruits {
+  grid-column: 1 / 2;
+  grid-row: 2;
+}
+
+#vegetables {
+  grid-column: 2 / 4;
+  grid-row: 2;
+}
+
+#healthy {
+  grid-column: 1 / 2;
+  grid-row: 3;
+}
+
+#liquid {
+  grid-column: 2 / 4;
+  grid-row: 3;
+}
+
+#sweetAdditions {
+  grid-column: 1 / 2;
+  grid-row: 4;
+}
+
+#finalTouches {
+  grid-column: 2 / 4;
+  grid-row: 4;
+}
+
+#formButtons {
+  grid-column: 1 / 5;
+  grid-row: 5;
+}
+
+#smoothieOutput {
+  grid-column: 1 / 5;
+  grid-row: 6;
+  padding: 40px 100px 50px 100px;
+}
+
+/*
+When the screen viewport width becomes 900px, the declared styles will become applied 
+
+This media query applies a grid-column: 1 / 5, which spans the entirety of the page, this way each section sits below one another on smaller screens which is more accesible.
+*/
+@media screen and (max-width: 900px) {
+  #contentContainer {
+    padding: 10px 10px;
+  }
+
+  /* Assign the grid-column: 1 / 5; to all the grid elements using a combined selector. */
+  header,
+  #fruits,
+  #vegetables,
+  #healthy,
+  #liquid,
+  #sweetAdditions,
+  #finalTouches,
+  #formButtons,
+  #smoothieOutput {
+    grid-column: 1 / 5;
+  }
+
+  /* Declare a grid row for each grid element. */
+  header {
+    grid-row: 1;
+  }
+  #fruits {
+    grid-row: 2;
+  }
+  #vegetables {
+    grid-row: 3;
+  }
+  #healthy {
+    grid-row: 4;
+  }
+  #liquid {
+    grid-row: 5;
+  }
+  #sweetAdditions {
+    grid-row: 6;
+  }
+  #finalTouches {
+    grid-row: 7;
+  }
+  #formButtons {
+    grid-row: 8;
+  }
+  #smoothieOutput {
+    grid-row: 9;
+  }
+  /* End of Grid Layout Styles */
+
+  /* Set the buttons to display block to on mobile they display vertically with white space*/
+  #orderButton,
+  #clearOrder {
+    display: block;
+  }
+
+  /* Set a margin top on the clear form button, adding some needed spacing for mobile users. */
+  #clearOrder {
+    margin-top: 10px;
+  }
+}
